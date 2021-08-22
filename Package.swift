@@ -7,7 +7,9 @@ let package = Package(
     name: "SwiftAsciidoctor",
     platforms: [
         .macOS(.v10_10),
-        .iOS(.v10)
+        .iOS(.v10),
+        .tvOS(.v9),
+        .watchOS(.v2)
     ],
     products: [
         .library(
