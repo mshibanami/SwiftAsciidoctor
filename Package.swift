@@ -20,7 +20,7 @@ let package = Package(
             name: "SwiftAsciidoctor",
             dependencies: [],
             resources: [
-                .copy("asciidoctor.min.js")
+                .process("asciidoctor.min.js")
             ]),
         .testTarget(
             name: "SwiftAsciidoctorTests",

@@ -92,3 +92,5 @@ fastlane/test_output
 iOSInjectionProject/
 
 node_modules
+
+Sources/SwiftAsciidoctor/asciidoctor.min.js

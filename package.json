@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "asciidoctor": "^2.2.5"
+  },
+  "scripts": {
+    "postinstall": "cp node_modules/@asciidoctor/core/dist/browser/asciidoctor.min.js Sources/SwiftAsciidoctor/asciidoctor.min.js"
   }
 }
