@@ -12,7 +12,7 @@ If you use Swift Package Manager, you can use this library by adding this into `
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mshibanami/SwiftAsciidoctor", from: "1.0.0")
+    .package(url: "https://github.com/mshibanami/SwiftAsciidoctor", from: "1.0.2")
 ]
 ```
 
