@@ -3,25 +3,29 @@
 
     final class SwiftAsciidoctorTests: XCTestCase {
         func testConvertingAsciidocText() {
-            XCTAssertNotEqual(
-                try SwiftAsciidoctor().convert("Hello", options: []),
-                "undefined")
+            let asciidoctor = SwiftAsciidoctor()
             
             XCTAssertEqual(
-                try SwiftAsciidoctor().convert(
+                try asciidoctor.convert("== Hello World"),
+                """
+                <div class="sect1">
+                <h2 id="_hello_world">Hello World</h2>
+                <div class="sectionbody">
+                
+                </div>
+                </div>
+                """)
+            
+            XCTAssertEqual(
+                try asciidoctor.convert(
                     "= Document title",
                     options: [
-                        .attributes(
-                            [
-                                "showtitle": true,
-                                "icons": "font",
-                            ]),
-                        .safe(.server)
+                        .attributes(["showtitle": true])
                     ]),
                 "<h1>Document title</h1>\n")
             
             XCTAssertThrowsError(
-                try SwiftAsciidoctor().convert(
+                try asciidoctor.convert(
                     "= Document title",
                     options: [
                         .safe(.server),
