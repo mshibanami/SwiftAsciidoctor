@@ -42,11 +42,8 @@ You can specify Almost all https://docs.asciidoctor.org/asciidoctor.js/latest/pr
 
 == Development
 
-You can directly open this repository on Xcode. However, you need to run this first to fetch asciidoctor.js:
-
-```bash
-npm install
-```
+- You can directly open this repository on Xcode.
+- If you want to update asciidoctor.js, simply do `npm update`.
 
 == Acknowledgements
 
