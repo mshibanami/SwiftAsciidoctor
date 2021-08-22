@@ -7,15 +7,15 @@
 
 import Foundation
 
-enum ConvertOption {
-    enum BackendFormat {
+public enum ConvertOption {
+    public enum BackendFormat {
         case rawValue(String)
         case html5
         case xhtml5
         case docbook5
         case manpage
         
-        var value: String {
+        public var value: String {
             switch (self) {
             case .rawValue(let value):
                 return value
@@ -31,14 +31,14 @@ enum ConvertOption {
         }
     }
     
-    enum DocType {
+    public enum DocType {
         case rawValue(String)
         case article
         case book
         case manpage
         case inline
         
-        var value: String {
+        public var value: String {
             switch (self) {
             case .rawValue(let value):
                 return value
@@ -54,14 +54,14 @@ enum ConvertOption {
         }
     }
     
-    enum SafeType {
+    public enum SafeType {
         case rawValue(String)
         case unsafe
         case safe
         case server
         case secure
         
-        var value: String {
+        public var value: String {
             switch (self) {
             case .rawValue(let value):
                 return value
@@ -93,7 +93,7 @@ enum ConvertOption {
     case toFileBool(Bool)
     case toFilePath(String)
 
-    var key: String {
+    public var key: String {
         switch (self) {
         case .rawValue(let key, _):
             return key
@@ -128,7 +128,7 @@ enum ConvertOption {
         }
     }
     
-    var value: Any {
+    public var value: Any {
         switch (self) {
         case .rawValue(_, let value):
             return value

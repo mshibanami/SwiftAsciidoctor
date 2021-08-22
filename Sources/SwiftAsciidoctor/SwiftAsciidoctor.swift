@@ -1,7 +1,7 @@
 import JavaScriptCore
 
-struct SwiftAsciidoctor {
-    enum Error: Swift.Error {
+public struct SwiftAsciidoctor {
+    public enum Error: Swift.Error {
         case invalidInput
         case invalidOptions
         case duplicatedOptions
@@ -9,7 +9,7 @@ struct SwiftAsciidoctor {
     
     private let context = JSContext()!
     
-    init() {
+    public init() {
         loadAsciidoctor()
     }
     
@@ -19,7 +19,7 @@ struct SwiftAsciidoctor {
         context.evaluateScript(asciidoctorSrc)
     }
     
-    func convert(_ input: String, options: [ConvertOption]? = nil) throws -> String {
+    public func convert(_ input: String, options: [ConvertOption]? = nil) throws -> String {
         let optionsJsonString = try options?.makeJsonString()
         let result = context.evaluateScript("""
             (function() {
@@ -37,13 +37,13 @@ struct SwiftAsciidoctor {
     }
 }
 
-extension String {
+private extension String {
     var javaScriptEscapedString: String {
         return replacingOccurrences(of: "`", with: #"\`"#)
     }
 }
 
-extension Array where Element == ConvertOption {
+private extension Array where Element == ConvertOption {
     func makeJsonString() throws -> String {
         guard count == Set(map { $0.key }).count else {
             throw SwiftAsciidoctor.Error.duplicatedOptions
